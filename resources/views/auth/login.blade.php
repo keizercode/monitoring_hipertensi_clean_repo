@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Tension Track</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        * { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-teal-50 to-blue-50 min-h-screen flex items-center justify-center p-4">
+    
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl shadow-lg mb-4">
+                <i class="fas fa-heartbeat text-white text-3xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800">Tension</h1>
+            <p class="text-teal-600 font-medium">Track</p>
+        </div>
+        
+        <!-- Login Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Login</h2>
+            <p class="text-gray-600 mb-6">Masuk untuk melanjutkan</p>
+            
+            @if($errors->any())
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg">
+                    <p class="text-red-700 text-sm">{{ $errors->first() }}</p>
+                </div>
+            @endif
+            
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
+                
+                <!-- Email -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">EMAIL</label>
+                    <input type="email" name="email" value="{{ old('email') }}" required
+                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition"
+                           placeholder="email@example.com">
+                </div>
+                
+                <!-- Password -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">PASSWORD</label>
+                    <div class="relative">
+                        <input type="password" name="password" id="loginPassword" required
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition"
+                               placeholder="******">
+                        <button type="button" onclick="togglePassword('loginPassword')" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Remember Me -->
+                <div class="flex items-center justify-between mb-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" name="remember" class="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500">
+                        <span class="ml-2 text-sm text-gray-600">Ingat saya</span>
+                    </label>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-teal-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Login
+                </button>
+            </form>
+            
+            <!-- Register Link -->
+            <p class="text-center text-gray-600 mt-6">
+                Belum punya akun? 
+                <a href="{{ route('register') }}" class="text-teal-600 font-semibold hover:text-teal-700">Daftar sekarang</a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const icon = event.currentTarget.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>
