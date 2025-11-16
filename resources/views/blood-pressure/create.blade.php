@@ -15,7 +15,7 @@
                 <p class="text-sm sm:text-base text-gray-600 truncate">{{ $patient->name }}</p>
             </div>
         </div>
-        
+
         <!-- Patient Quick Info - Responsive -->
         <div class="bg-teal-50 border-l-4 border-teal-500 p-3 sm:p-4 rounded-r-lg mb-4 sm:mb-6">
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-sm">
@@ -35,10 +35,10 @@
                 @endif
             </div>
         </div>
-        
+
         <form action="{{ route('blood-pressure.store', $patient) }}" method="POST" class="space-y-4 sm:space-y-6">
             @csrf
-            
+
             <!-- Tanggal & Jam - Responsive Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -49,7 +49,7 @@
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-                
+
                 <div>
                     <label class="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">JAM</label>
                     <input type="time" name="measurement_time" value="{{ old('measurement_time', date('H:i')) }}" required
@@ -59,7 +59,7 @@
                     @enderror
                 </div>
             </div>
-            
+
             <!-- Systole & Diastole - Responsive -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -72,7 +72,7 @@
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-                
+
                 <div>
                     <label class="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">DIASTOLE (mmHg)</label>
                     <input type="number" name="diastolic" value="{{ old('diastolic') }}" required min="40" max="150"
@@ -84,10 +84,10 @@
                     @enderror
                 </div>
             </div>
-            
+
             <!-- Preview Category -->
             <div id="categoryPreview" class="hidden p-3 sm:p-4 rounded-lg"></div>
-            
+
             <!-- Keluhan -->
             <div>
                 <label class="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">KELUHAN</label>
@@ -98,7 +98,7 @@
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
-            
+
             <!-- Buttons - Responsive -->
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 pt-4">
                 <a href="{{ route('patients.show', $patient) }}" class="flex-1 px-4 sm:px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition text-center font-medium text-sm sm:text-base">
@@ -118,20 +118,24 @@
     const systolicInput = document.querySelector('input[name="systolic"]');
     const diastolicInput = document.querySelector('input[name="diastolic"]');
     const categoryPreview = document.getElementById('categoryPreview');
-    
+
     function updateCategory() {
         const systolic = parseInt(systolicInput.value) || 0;
         const diastolic = parseInt(diastolicInput.value) || 0;
-        
+
         if (systolic > 0 && diastolic > 0) {
             let category = '';
             let colorClass = '';
             let icon = '';
-            
+
             if (systolic < 120 && diastolic < 80) {
                 category = 'Normal';
                 colorClass = 'bg-green-100 border-green-500 text-green-800';
                 icon = 'fa-check-circle';
+            } else if ((systolic >= 120 && systolic <= 129) || (diastolic < 80)) {
+                category = 'Pra-hipertensi';
+                colorClass = 'bg-blue-100 border-blue-500 text-blue-800';
+                icon = 'fa-exclamation-triangle';
             } else if ((systolic >= 130 && systolic <= 139) || (diastolic >= 80 && diastolic <= 89)) {
                 category = 'Hipertensi Stadium 1';
                 colorClass = 'bg-yellow-100 border-yellow-500 text-yellow-800';
@@ -141,7 +145,7 @@
                 colorClass = 'bg-red-100 border-red-500 text-red-800';
                 icon = 'fa-times-circle';
             }
-            
+
             categoryPreview.className = `p-3 sm:p-4 rounded-lg border-l-4 ${colorClass}`;
             categoryPreview.innerHTML = `
                 <div class="flex items-center">
@@ -157,7 +161,7 @@
             categoryPreview.classList.add('hidden');
         }
     }
-    
+
     systolicInput.addEventListener('input', updateCategory);
     diastolicInput.addEventListener('input', updateCategory);
     updateCategory();

@@ -44,7 +44,7 @@
         </div>
         <h3 class="text-xl font-bold text-gray-800">Diet Rendah Garam</h3>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         @forelse($dietContents as $content)
             <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition transform hover:-translate-y-1">
@@ -60,7 +60,7 @@
                 </a>
             </div>
         @empty
-            <p class="text-gray-500">Konten belum tersedia</p>
+            <p class="text-gray-500">Diet rendah garam penting untuk membantu menurunkan tekanan darah karena garam dapat menyebabkan tubuh menahan cairan dan meningkatkan beban kerja jantung. Pasien dianjurkan membatasi konsumsi makanan tinggi natrium seperti makanan instan, keripik, makanan kaleng, dan bumbu penyedap.</p>
         @endforelse
     </div>
 </div>
@@ -73,7 +73,7 @@
         </div>
         <h3 class="text-xl font-bold text-gray-800">Olahraga & Aktivitas Fisik</h3>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         @forelse($exerciseContents as $content)
             <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
@@ -89,7 +89,7 @@
                 </a>
             </div>
         @empty
-            <p class="text-gray-500">Konten belum tersedia</p>
+            <p class="text-gray-500">Aktivitas fisik rutin dapat membantu memperbaiki aliran darah, menurunkan tekanan darah, serta menjaga berat badan ideal. Pasien dianjurkan melakukan olahraga ringan–sedang seperti jalan kaki 30 menit per hari, 5 kali seminggu.</p>
         @endforelse
     </div>
 </div>
@@ -102,7 +102,7 @@
         </div>
         <h3 class="text-xl font-bold text-gray-800">Minum Air yang Cukup</h3>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         @forelse($hydrationContents as $content)
             <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
@@ -118,7 +118,7 @@
                 </a>
             </div>
         @empty
-            <p class="text-gray-500">Konten belum tersedia</p>
+            <p class="text-gray-500">Memenuhi kebutuhan cairan harian membantu menjaga fungsi organ tubuh dan mencegah dehidrasi yang dapat mempengaruhi tekanan darah. Pasien dianjurkan minum air 6–8 gelas per hari atau disesuaikan dengan kondisi kesehatan.</p>
         @endforelse
     </div>
 </div>
@@ -131,7 +131,7 @@
         </div>
         <h3 class="text-xl font-bold text-gray-800">Pengobatan & Konsultasi</h3>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         @forelse($medicationContents as $content)
             <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
@@ -147,7 +147,7 @@
                 </a>
             </div>
         @empty
-            <p class="text-gray-500">Konten belum tersedia</p>
+            <p class="text-gray-500">Penderita hipertensi perlu minum obat secara teratur sesuai anjuran dokter serta melakukan kontrol rutin untuk memantau perkembangan tekanan darah. Konsultasi dilakukan untuk mengevaluasi terapi dan menyesuaikan pengobatan bila diperlukan.</p>
         @endforelse
     </div>
 </div>

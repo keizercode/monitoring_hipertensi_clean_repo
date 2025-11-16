@@ -25,7 +25,10 @@ class BloodPressureRecord extends Model
     {
         if ($systolic < 120 && $diastolic < 80) {
             return 'Normal';
-        } elseif (($systolic >= 130 && $systolic <= 139) || 
+        } elseif (($systolic >= 120 && $systolic <= 129) ||
+                  ($diastolic < 80)) {
+            return 'Pra-hipertensi';
+        } elseif (($systolic >= 130 && $systolic <= 139) ||
                   ($diastolic >= 80 && $diastolic <= 89)) {
             return 'Hipertensi Stadium 1';
         } elseif ($systolic >= 140 || $diastolic >= 90) {
@@ -40,7 +43,7 @@ class BloodPressureRecord extends Model
 
         static::creating(function ($record) {
             $record->category = self::determineCategory(
-                $record->systolic, 
+                $record->systolic,
                 $record->diastolic
             );
         });

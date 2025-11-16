@@ -43,7 +43,7 @@ class BloodPressureController extends Controller
             ->orderBy('measurement_date', 'desc')
             ->orderBy('measurement_time', 'desc')
             ->paginate(20);
-        
+
         return view('blood-pressure.history', compact('patient', 'records'));
     }
 
@@ -52,7 +52,7 @@ class BloodPressureController extends Controller
         $records = $patient->bloodPressureRecords()
             ->orderBy('measurement_date', 'asc')
             ->get();
-        
+
         return view('blood-pressure.chart', compact('patient', 'records'));
     }
 
@@ -60,7 +60,7 @@ class BloodPressureController extends Controller
     {
         $patientId = $record->patient_id;
         $record->delete();
-        
+
         return redirect()->route('patients.show', $patientId)
             ->with('success', 'Data tekanan darah berhasil dihapus!');
     }
