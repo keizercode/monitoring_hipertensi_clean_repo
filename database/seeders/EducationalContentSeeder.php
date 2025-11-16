@@ -15,7 +15,7 @@ class EducationalContentSeeder extends Seeder
                 'title' => 'Panduan Diet Rendah Garam',
                 'category' => 'diet',
                 'content' => 'Batasi konsumsi garam maksimal 5 gram (1 sendok teh) per hari. Hindari makanan olahan, makanan kaleng, dan makanan cepat saji. Gunakan rempah-rempah sebagai pengganti garam.',
-                'icon' => 'salt-shaker'
+                'icon' => 'utensils'
             ],
             [
                 'title' => 'Makanan yang Harus Dihindari',
@@ -27,9 +27,9 @@ class EducationalContentSeeder extends Seeder
                 'title' => 'Makanan yang Dianjurkan',
                 'category' => 'diet',
                 'content' => 'Konsumsi: buah dan sayur segar, gandum utuh, ikan, ayam tanpa kulit, kacang-kacangan, dan produk susu rendah lemak.',
-                'icon' => 'apple'
+                'icon' => 'apple-alt' // diperbaiki
             ],
-            
+
             // Olahraga
             [
                 'title' => 'Olahraga Teratur',
@@ -43,13 +43,13 @@ class EducationalContentSeeder extends Seeder
                 'content' => 'Jalan kaki 10.000 langkah per hari dapat membantu menurunkan tekanan darah. Gunakan tangga daripada lift, parkir lebih jauh dari tujuan.',
                 'icon' => 'walking'
             ],
-            
+
             // Hidrasi
             [
                 'title' => 'Minum Air yang Cukup',
                 'category' => 'hydration',
                 'content' => 'Minum air putih 8 gelas (2 liter) per hari. Air membantu melancarkan peredaran darah dan menjaga keseimbangan cairan tubuh.',
-                'icon' => 'glass-water'
+                'icon' => 'tint' // diperbaiki
             ],
             [
                 'title' => 'Hindari Minuman Berkafein Berlebihan',
@@ -57,7 +57,7 @@ class EducationalContentSeeder extends Seeder
                 'content' => 'Batasi konsumsi kopi, teh, dan minuman bersoda. Kafein dapat meningkatkan tekanan darah sementara.',
                 'icon' => 'coffee'
             ],
-            
+
             // Obat
             [
                 'title' => 'Minum Obat Teratur',
