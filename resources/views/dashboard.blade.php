@@ -80,7 +80,7 @@
                     </tr>
                     <tr class="border-b border-gray-100 hover:bg-green-50">
                         <td class="py-3 px-4">
-                            <span class="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            <span class="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
                                 <i class="fas fa-exclamation-circle mr-1 sm:mr-2"></i>
                                 <span class="hidden sm:inline">Pra-hipertensi</span>
                                 <span class="sm:hidden">Pra-hipertensi</span>

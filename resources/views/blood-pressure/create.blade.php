@@ -134,8 +134,8 @@
                 icon = 'fa-check-circle';
             } else if ((systolic >= 120 && systolic <= 129) || (diastolic < 80)) {
                 category = 'Pra-hipertensi';
-                colorClass = 'bg-blue-100 border-blue-500 text-blue-800';
-                icon = 'fa-exclamation-triangle';
+                colorClass = 'bg-amber-100 border-amber-500 text-amber-800';
+                icon = 'fa-exclamation-circle';
             } else if ((systolic >= 130 && systolic <= 139) || (diastolic >= 80 && diastolic <= 89)) {
                 category = 'Hipertensi Stadium 1';
                 colorClass = 'bg-yellow-100 border-yellow-500 text-yellow-800';
