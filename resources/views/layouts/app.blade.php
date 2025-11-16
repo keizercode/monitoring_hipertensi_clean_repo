@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Tension Track')</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('images/ppn-logo.png) }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/ppn-logo.png') }}">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
