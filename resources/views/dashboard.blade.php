@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Pengukuran Hari Ini -->
     <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl shadow-lg p-6 text-white transform hover:scale-105 transition">
         <div class="flex items-center justify-between">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Quick Action -->
     <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg p-6 text-white transform hover:scale-105 transition sm:col-span-2 lg:col-span-1">
         <div class="flex items-center justify-between">
@@ -55,7 +55,7 @@
         <i class="fas fa-info-circle text-teal-500 mr-2"></i>
         Kategori Tekanan Darah (Standar AHA 2025)
     </h3>
-    
+
     <div class="overflow-x-auto -mx-4 sm:mx-0">
         <div class="inline-block min-w-full align-middle">
             <table class="w-full">
@@ -76,6 +76,17 @@
                             </span>
                         </td>
                         <td class="text-center py-3 px-2 sm:px-4 font-medium text-sm sm:text-base">< 120</td>
+                        <td class="text-center py-3 px-2 sm:px-4 font-medium text-sm sm:text-base">< 80</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 hover:bg-green-50">
+                        <td class="py-3 px-4">
+                            <span class="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                <i class="fas fa-exclamation-circle mr-1 sm:mr-2"></i>
+                                <span class="hidden sm:inline">Pra-hipertensi</span>
+                                <span class="sm:hidden">Pra-hipertensi</span>
+                            </span>
+                        </td>
+                        <td class="text-center py-3 px-2 sm:px-4 font-medium text-sm sm:text-base">120-129</td>
                         <td class="text-center py-3 px-2 sm:px-4 font-medium text-sm sm:text-base">< 80</td>
                     </tr>
                     <tr class="border-b border-gray-100 hover:bg-yellow-50">
@@ -118,7 +129,7 @@
             <canvas id="bloodPressureChart"></canvas>
         </div>
     </div>
-    
+
     <!-- Recent Patients -->
     <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6">
         <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-4">Pasien Terbaru</h3>
@@ -152,7 +163,7 @@
                 <p class="text-center text-gray-400 py-8 text-sm">Belum ada pasien</p>
             @endforelse
         </div>
-        
+
         @if($recentPatients->count() > 0)
             <a href="{{ route('patients.index') }}" class="block text-center text-teal-600 font-medium mt-4 hover:text-teal-700 text-sm sm:text-base">
                 Lihat Semua <i class="fas fa-arrow-right ml-1"></i>
@@ -166,7 +177,7 @@
 <script>
     const ctx = document.getElementById('bloodPressureChart').getContext('2d');
     const chartData = @json($chartData);
-    
+
     const chart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -257,7 +268,7 @@
             }
         }
     });
-    
+
     // Update chart on window resize
     window.addEventListener('resize', function() {
         chart.data.labels = chartData.map(d => {
